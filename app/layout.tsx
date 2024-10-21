@@ -6,7 +6,7 @@ const roboto = Roboto({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-roboto",
-  weight: "400",
+  weight: ["100", "300", "400", "500", "700", "900"],
 });
 
 export const metadata: Metadata = {
@@ -25,11 +25,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/assets/icons/favicon.png" sizes="any" />
       </head>
-      <body
-        className={`${roboto.variable} bg-gradient-to-r from-redSoft to-red antialiased px-[10%] py-[10%] h-screen w-screen overflow-hidden`}
-      >
-        {children}
-      </body>
+      <body className={`${roboto.variable} font-roboto`}>{children}</body>
     </html>
   );
 }

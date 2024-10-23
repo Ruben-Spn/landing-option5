@@ -10,8 +10,10 @@ const config: Config = {
     extend: {
       boxShadow: {
         component: "4px 4px 0 0 #2D2D2D",
+        error: "4px 4px 0 0 #FC4731",
         "inner-component": "inset 2px 2px 0 0 #2D2D2D",
       },
+
       colors: {
         beige: "#FEFAEF",
         red: "#FC4731",

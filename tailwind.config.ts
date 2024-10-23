@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        component: "4px 4px 0 0 #2D2D2D",
+        "inner-component": "inset 2px 2px 0 0 #2D2D2D",
+      },
       colors: {
         beige: "#FEFAEF",
         red: "#FC4731",

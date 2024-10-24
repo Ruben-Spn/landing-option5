@@ -6,6 +6,7 @@ import { ChangeEvent, useRef, useState } from "react";
 import { emailCheck } from "./utils/validation";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { useGSAP } from "@gsap/react";
+import H3 from "./components/H3";
 
 export default function Home() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -97,9 +98,10 @@ export default function Home() {
 
           <article className="flex flex-col justify-start gap-6 z-50">
             <div className="flex flex-col justify-start gap-1">
-              <h3 ref={h3Ref} className="font-medium text-xl text-grey">
+              {/* <h3 ref={h3Ref} className="font-medium text-xl text-grey">
                 Coming soon
-              </h3>
+              </h3> */}
+              <H3 />
               <h1 ref={h1Ref} className="font-bold text-[44px] leading-[3rem]">
                 Get notified when we will launch!
               </h1>

@@ -12,7 +12,6 @@ export default function Home() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isShaking, setIsShaking] = useState(false);
   const [email, setEmail] = useState("");
-  const h3Ref = useRef<HTMLHeadingElement>(null);
   const h1Ref = useRef<HTMLHeadingElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -47,12 +46,6 @@ export default function Home() {
   };
 
   useGSAP(() => {
-    gsap.from(h3Ref.current, {
-      x: -200,
-      opacity: 0,
-      duration: 0.5,
-      ease: "power1.out",
-    });
     gsap.from(h1Ref.current, {
       x: -200,
       opacity: 0,

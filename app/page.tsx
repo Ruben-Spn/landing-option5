@@ -2,7 +2,7 @@
 
 import Header from "./components/Header";
 import gsap from "gsap";
-import { ChangeEvent, useLayoutEffect, useRef, useState } from "react";
+import { ChangeEvent, useRef, useState } from "react";
 import { emailCheck } from "./utils/validation";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { useGSAP } from "@gsap/react";

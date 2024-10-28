@@ -25,7 +25,10 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/assets/icons/favicon.png" sizes="any" />
       </head>
-      <body className={`${roboto.variable} font-roboto`}>{children}</body>
+      <body className={`${roboto.variable} font-roboto`}>
+        <script>0</script>
+        {children}
+      </body>
     </html>
   );
 }

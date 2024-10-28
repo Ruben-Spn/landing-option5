@@ -2,9 +2,9 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import React, { useRef } from "react";
 
-export default function H3() {
+export default function Subtitle() {
   const charsRef = useRef<HTMLSpanElement[]>([]);
-  const h3Ref = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLHeadingElement>(null);
 
   //set text
   const text = "Coming soon";
@@ -37,7 +37,7 @@ export default function H3() {
 
   //load animation
   useGSAP(() => {
-    gsap.from(h3Ref.current, {
+    gsap.from(subtitleRef.current, {
       x: -200,
       opacity: 0,
       duration: 0.5,
@@ -47,7 +47,7 @@ export default function H3() {
   }, []);
 
   return (
-    <h3 ref={h3Ref} className="font-medium text-xl text-grey flex">
+    <h3 ref={subtitleRef} className="font-medium text-xl text-grey flex">
       {words.map((word, index) => (
         <div key={index} className="mr-1">
           {word.split("").map((char, index) => (

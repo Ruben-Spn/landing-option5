@@ -2,7 +2,7 @@
 
 import Header from "./components/Header";
 import gsap from "gsap";
-import { ChangeEvent, useRef, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { emailCheck } from "./utils/validation";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { useGSAP } from "@gsap/react";
@@ -11,10 +11,19 @@ import Subtitle from "./components/Subtitle";
 
 export default function Home() {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [isShaking, setIsShaking] = useState(false);
-  const [email, setEmail] = useState("");
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [isShaking, setIsShaking] = useState<boolean>(false);
+  const [email, setEmail] = useState<string>("");
+  const [mobileKeyboardIsOpen, setMobileKeyboardIsOpen] =
+    useState<boolean>(false);
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const ua = navigator.userAgent;
+    setIsMobile(/mobile/i.test(ua));
+    console.log(ua + "usestate: " + isMobile);
+  }, []);
 
   useGSAP(() => {
     gsap.from(inputRef.current, {
@@ -38,6 +47,7 @@ export default function Home() {
   };
 
   const handleButtonClick = async () => {
+    console.log(isMobile);
     if (inputRef.current && !emailCheck(email)) {
       gsap.to(inputRef.current, {
         duration: 2,
@@ -77,7 +87,11 @@ export default function Home() {
               alt="Rocket launch illustration"
               className="max-w-none z-10 object-fit md:object-scale-down"
             /> */}
-            <div className="w-full z-10 flex items-center justify-center max-h-[400px]">
+            <div
+              className={`w-full z-10 flex items-center justify-center max-h-[400px] ${
+                mobileKeyboardIsOpen ? "opacity-40" : ""
+              }`}
+            >
               <DotLottieReact
                 src="/assets/animations/launchAnimation.lottie"
                 loop
@@ -96,6 +110,8 @@ export default function Home() {
             </div>
             <div className="flex flex-col items-center justify-center gap-4 w-full px-1 md:flex-row md:items-center md:justify-start max-w-[50rem]">
               <input
+                onClick={() => (isMobile ? setMobileKeyboardIsOpen(true) : "")}
+                onBlur={() => (isMobile ? setMobileKeyboardIsOpen(false) : "")}
                 onChange={handleChange}
                 ref={inputRef}
                 className={` bg-white placeholder:text-grey hover:bg-blend-multiply text-black rounded-md text-base font-medium border p-4 w-full outline-none transition-shadow ease-in duration-300 max-w-[45rem] ${

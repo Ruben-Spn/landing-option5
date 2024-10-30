@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app). It uses typescript and tailwindcss. Animations are done with the help of GSAP and css. I animated the illustration using lottie and it's native react component.
 
 ## Getting Started
 
@@ -16,21 +16,40 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Setup Mobile view in browser
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Google Chrome
 
-## Learn More
+    Open Developer Tools:
+        Click the three dots in the top-right corner.
+        Navigate to More Tools > Developer Tools.
+        Shortcut: Press Ctrl + Shift + I (Windows/Linux) or Cmd + Option + I (macOS).
 
-To learn more about Next.js, take a look at the following resources:
+    Toggle Device Toolbar:
+        Click the Toggle Device Toolbar icon
+        in the Developer Tools pane.
+        Shortcut: Press Ctrl + Shift + M (Windows/Linux) or Cmd + Shift + M (macOS).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    Select a Mobile Device:
+        Choose a device from the dropdown menu at the top to simulate different screen sizes.
+        Adjust dimensions manually if needed.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+    Refresh the Page:
+        Some features may require a page reload to display correctly.
 
-## Deploy on Vercel
+Safari (macOS)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    Enable Develop Menu (if not visible):
+        Go to Safari > Preferences > Advanced.
+        Check "Show Develop menu in menu bar".
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+    Open Responsive Design Mode:
+        Click Develop in the menu bar.
+        Select Enter Responsive Design Mode.
+        Shortcut: Press Cmd + Option + R.
+
+    Select Device Configuration:
+        Pick a device at the top to emulate its screen.
+
+    Refresh if Needed:
+        Reload the page for complete emulation.

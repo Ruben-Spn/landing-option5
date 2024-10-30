@@ -17,6 +17,8 @@ export default function Title({ success }: titleProps) {
     }
   }, [success]);
 
+  // set refrences to chars
+
   const addSuccessCharRef = (el: HTMLSpanElement | null) => {
     if (el && !successCharsRef.current.includes(el)) {
       successCharsRef.current.push(el);
@@ -32,7 +34,7 @@ export default function Title({ success }: titleProps) {
   //set texts
 
   const defaultText = "Get notified when we will launch!";
-  const successText = "We will keep you updated!";
+  const successText = "Signed up! We will keep you updated.";
 
   //split words
 
@@ -50,7 +52,7 @@ export default function Title({ success }: titleProps) {
         each: 0.05,
         from: "start",
       },
-      duration: 0.5,
+      duration: 0.25,
       onComplete: fadeIn,
     });
   };
@@ -68,7 +70,7 @@ export default function Title({ success }: titleProps) {
         opacity: 1,
         ease: "power1.out",
         stagger: {
-          each: 0.05,
+          each: 0.1,
           from: "start",
         },
         duration: 0.5,

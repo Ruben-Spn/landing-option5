@@ -19,57 +19,59 @@ export default function Home() {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [isMobile, setIsMobile] = useState(false);
 
+  //animation controls
+  const fadeInAnimationControls = {
+    x: -200,
+    opacity: 0,
+    duration: 0.5,
+    delay: 0.4,
+    ease: "power1.out",
+  };
+
+  const shakeAnimationControls = {
+    duration: 2,
+    ease: "back.out",
+    keyframes: [
+      { x: -30 },
+      { x: 30 },
+      { x: -15 },
+      { x: 15 },
+      { x: -10 },
+      { x: 10 },
+      { x: -5 },
+      { x: 5 },
+      { x: 0 },
+    ],
+    onStart: () => {
+      setIsShaking(true);
+    },
+    onComplete: () => {
+      setIsShaking(false);
+    },
+  };
+
+  //check if device is mobile
   useEffect(() => {
     const ua = navigator.userAgent;
     setIsMobile(/mobile/i.test(ua));
-    console.log(ua + "usestate: " + isMobile);
   }, []);
 
+  //load animations
   useGSAP(() => {
-    gsap.from(inputRef.current, {
-      x: -200,
-      opacity: 0,
-      duration: 0.5,
-      delay: 0.4,
-      ease: "power1.out",
-    });
-    gsap.from(buttonRef.current, {
-      x: -200,
-      opacity: 0,
-      duration: 0.5,
-      delay: 0.6,
-      ease: "power1.out",
-    });
+    gsap.from(inputRef.current, fadeInAnimationControls);
+    gsap.from(buttonRef.current, fadeInAnimationControls);
   }, []);
 
+  //track userinput
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
 
+  //onSubmit
   const handleButtonClick = async () => {
     console.log(isMobile);
     if (inputRef.current && !emailCheck(email)) {
-      gsap.to(inputRef.current, {
-        duration: 2,
-        ease: "back.out",
-        keyframes: [
-          { x: -30 },
-          { x: 30 },
-          { x: -15 },
-          { x: 15 },
-          { x: -10 },
-          { x: 10 },
-          { x: -5 },
-          { x: 5 },
-          { x: 0 },
-        ],
-        onStart: () => {
-          setIsShaking(true);
-        },
-        onComplete: () => {
-          setIsShaking(false);
-        },
-      });
+      gsap.to(inputRef.current, shakeAnimationControls);
     } else {
       setIsSuccess(true);
     }
@@ -80,7 +82,9 @@ export default function Home() {
       <div className="bg-beige h-full rounded-[20px] p-6 text-black overflow-hidden">
         <Header />
         <main className="flex h-full flex-col w-full justify-end pb-10">
-          <div className="w-full h-full  flex items-center justify-center ">
+          <div className="w-full h-full  flex items-center justify-center relative">
+            {/* // static image */}
+
             {/* <Image
               src={"/assets/illustrations/launch-illustration.svg"}
               fill
@@ -89,16 +93,18 @@ export default function Home() {
             /> */}
             <div
               className={`w-full z-10 flex items-center justify-center max-h-[400px] ${
-                mobileKeyboardIsOpen ? "opacity-40" : ""
+                mobileKeyboardIsOpen ? "opacity-40 absolute top-12" : ""
               }`}
             >
+              {/* // lottie animation */}
+
               <DotLottieReact
                 src="/assets/animations/launchAnimation.lottie"
                 loop
                 autoplay
                 width={150}
                 height={150}
-                className="origin-top-left "
+                className="origin-top-left"
               />
             </div>
           </div>

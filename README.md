@@ -1,5 +1,8 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app). It uses typescript and tailwindcss. Animations are done with the help of GSAP and css. I animated the illustration using lottie and implemented it using its react component.
 
+Production is hosted here: [https://landing-option5-f8k7.vercel.app/](https://landing-option5-f8k7.vercel.app/)
+Using Vercel.
+
 ## Getting Started
 
 First, run the development server:

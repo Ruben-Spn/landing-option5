@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app). It uses typescript and tailwindcss. Animations are done with the help of GSAP and css. I animated the illustration using lottie and it's native react component.
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app). It uses typescript and tailwindcss. Animations are done with the help of GSAP and css. I animated the illustration using lottie and implemented it using its react component.
 
 ## Getting Started
 
